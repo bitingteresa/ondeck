@@ -32,7 +32,7 @@ class ColItem extends Component {
   renderRemove () {
     return (
       <i
-        className='material-icons'
+        className='material-icons pull-right removeIcon'
         onClick={::this.onRemove}
       >
         clear
@@ -57,6 +57,7 @@ class ColItem extends Component {
 
     return (
       <p className='text-left inventoryItem'>
+        {this.renderRemove()}
         <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
         Brand: {item.brand}<br />
         Style: {item.style}<br />
@@ -66,11 +67,13 @@ class ColItem extends Component {
     );
   }
 
+// TODO: refactor offset formula
   render () {
-    const { size, item } = this.props;
+    const { size, item, col } = this.props;
+    const offset = col === '1' ? 'col-xs-offset-1' : '';
 
     return (
-      <span className={`col-xs-${size} text-center`}>
+      <span className={`col-xs-${size} text-center ${offset}`}>
         {Object.keys(item).length ? this.renderItem() : this.renderAdd()}
       </span>
     );

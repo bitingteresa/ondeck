@@ -92,12 +92,6 @@ const mapStateToProps = (state, ownProps) => {
     size: 10,
     upc: 456783
   };
-  newState.inventory[2][3] = {
-    brand: 'adidas',
-    style: 'stripes',
-    size: 10,
-    upc: 12345
-  };
   newState.inventory[1][1] = {
     brand: 'Nike',
     style: 'Jordans',
