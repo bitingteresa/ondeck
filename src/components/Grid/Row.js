@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Grid extends Component {
+class Row extends Component {
   static propTypes = {
     children: PropTypes.node
   };
@@ -10,9 +10,9 @@ class Grid extends Component {
     const { children } = this.props;
 
     return (
-      <div>{children}</div>
+      <div className='row'>{children}</div>
     );
   }
 }
 
-export default Grid;
+export default Row;
