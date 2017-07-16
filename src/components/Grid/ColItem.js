@@ -59,10 +59,10 @@ class ColItem extends Component {
       <p className='text-left inventoryItem'>
         {this.renderRemove()}
         <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
-        Brand: {item.brand}<br />
-        Style: {item.style}<br />
-        Size: {item.size}<br />
-        UPC ID: {item.upc}<br />
+        <b>Brand:</b> {item.brand}<br />
+        <b>Style:</b> {item.style}<br />
+        <b>Size:</b> {item.size}<br />
+        <b>UPC ID:</b> {item.upc}<br />
       </p>
     );
   }

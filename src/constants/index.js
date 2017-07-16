@@ -1,1 +1,1 @@
-
+export const DELETE_SNEAKER = 'DELETE_SNEAKER';
