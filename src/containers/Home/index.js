@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as SneakerServices from '../../services/sneaker';
 import Grid from '../../components/Grid';
 import Row from '../../components/Grid/Row';
 import ColItem from '../../components/Grid/ColItem';
@@ -12,7 +14,10 @@ class Home extends Component {
   }
 
   onRemove (row, col) {
-    console.log('Removing!', row, col);
+    const { deleteSneaker } = this.props.actions;
+    const data = { row, col };
+
+    deleteSneaker(data);
   }
 
   renderHeader () {
@@ -31,8 +36,8 @@ class Home extends Component {
         col: key,
         row: rowId,
         item: item[key],
-        onAdd: this.onAdd,
-        onRemove: this.onRemove,
+        onAdd: ::this.onAdd,
+        onRemove: ::this.onRemove,
         size,
         key
       };
@@ -77,4 +82,12 @@ const mapStateToProps = (state, ownProps) => {
   return newState;
 };
 
-export default connect(mapStateToProps, {})(Home);
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    ...bindActionCreators({
+      deleteSneaker: SneakerServices.deleteSneaker
+    }, dispatch)
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
