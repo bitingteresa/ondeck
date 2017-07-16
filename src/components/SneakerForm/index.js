@@ -53,11 +53,6 @@ const SneakerForm = (props) => {
   );
 };
 
-function mapStateToProps(state, ownProps) {
-  console.log('STATE', state);
-  console.log('ownProps', ownProps)
-}
-
 export default reduxForm({
   form: 'sneaker'
-}, mapStateToProps)(SneakerForm);
+})(SneakerForm);
