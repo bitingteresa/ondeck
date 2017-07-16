@@ -24,7 +24,7 @@ const createField = (name, placeholder) => {
 };
 
 const SneakerForm = (props) => {
-  const { handleSubmit, pristine, submitting } = props;
+  const { handleSubmit, pristine, submitting, onCancel } = props;
 
   return (
     <form onSubmit={handleSubmit} className='formContainer'>
@@ -36,11 +36,17 @@ const SneakerForm = (props) => {
       <br />
       <div className='pull-right'>
         <button
+          className='btn btn-default cancelBtn'
+          onClick={onCancel}
+        >
+          CANCEL
+        </button>
+        <button
           type='submit'
           disabled={pristine || submitting}
           className='btn btn-primary'
         >
-          Submit
+          SUBMIT
         </button>
       </div>
     </form>

@@ -17,7 +17,7 @@ class Home extends Component {
 
   componentWillReceiveProps (nextProps) {
     if (this.props.isAdding && !nextProps.isAdding) {
-      this.setState({ showForm: false, row: '', col: '' });
+      this.clearForm();
     }
   }
 
@@ -46,6 +46,10 @@ class Home extends Component {
   submitSneaker () {
   // Just a wrapper to actually hit the form submit
     this.sneakerSubmit.submit();
+  }
+
+  clearForm () {
+    this.setState({ showForm: false, row: '', col: '' });
   }
 
   renderHeader () {
@@ -98,6 +102,7 @@ class Home extends Component {
       <SneakerForm
         onSubmit={::this.onAddSubmit}
         ref={node => this.sneakerSubmit = node}
+        onCancel={::this.clearForm}
       />
     );
 

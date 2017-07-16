@@ -29,24 +29,46 @@ body {
 
 .btn {
   background-color: transparent;
-  border: 2px solid $rose;
   border-radius: 0;
-  color: $rose;
+  border-width: 2px;
+  border-style: solid;
   padding: 16px 36px;
   font-size: 20px;
+  letter-spacing: 0.2rem;
 
   &:hover {
-    background-color: $rose;
-    border: 2px solid $rose;
+    border-style: solid;
+    border-width: 2px;
+    color: white;
   }
 
   &:disabled, &:disabled:hover {
     background-color: transparent;
-    color: $rose;
-    border-color: $rose;
+    opacity: 1;
   }
 }
 
 .btn-primary {
+  border-color: darken($grass, 5%);
+  color: darken($grass, 5%);
 
+  &:hover {
+    background-color: darken($grass, 5%);
+    border: 2px solid darken($grass, 5%);
+  }
+
+  &:disabled, &:disabled:hover {
+    color: $grass;
+    border-color: $grass;
+  }
+}
+
+.btn-default {
+  border-color: $rose;
+  color: $rose;
+
+  &:hover {
+    background-color: $rose;
+    border-color: $rose;
+  }
 }
