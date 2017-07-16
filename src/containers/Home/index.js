@@ -7,12 +7,12 @@ import './Home.scss';
 
 class Home extends Component {
 
-  onAdd () {
-    console.log('Adding');
+  onAdd (row, col) {
+    console.log('Adding', row, col);
   }
 
-  onRemove () {
-    console.log('Removing!');
+  onRemove (row, col) {
+    console.log('Removing!', row, col);
   }
 
   renderHeader () {

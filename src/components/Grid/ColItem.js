@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Grid.scss';
 
 class ColItem extends Component {
   static propTypes = {
@@ -27,12 +28,35 @@ class ColItem extends Component {
     }
   }
 
+  renderRemove () {
+    return (
+      <i
+        className='material-icons'
+        onClick={::this.onRemove}
+      >
+        clear
+      </i>
+    );
+  }
+
+  renderAdd () {
+    return (
+      <i
+        className='material-icons addIcon'
+        onClick={::this.onAdd}
+      >
+        add
+      </i>
+    );
+  }
+
   renderItem () {
     const { item } = this.props;
 
     return (
       <p>
         Brand: {item.brand}
+        {this.renderRemove()}
       </p>
     );
   }
@@ -41,7 +65,7 @@ class ColItem extends Component {
     const { size } = this.props;
 
     return (
-      <span className={`col-xs-${size} text-center`}>col</span>
+      <span className={`col-xs-${size} text-center`}>{this.renderAdd()}</span>
     );
   }
 }

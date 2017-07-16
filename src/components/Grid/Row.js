@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Grid.scss';
 
 class Row extends Component {
   static propTypes = {
@@ -10,7 +11,7 @@ class Row extends Component {
     const { children } = this.props;
 
     return (
-      <div className='row'>{children}</div>
+      <div className='row gridRow'>{children}</div>
     );
   }
 }
