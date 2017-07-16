@@ -19,6 +19,13 @@ class Home extends Component {
     this.setState({ showForm: true, row, col });
   }
 
+  onAddSubmit (data) {
+    const { row, col } = this.state;
+    const position = { row, col };
+
+    this.props.actions.addSneaker(position, data);
+  }
+
   onRemove (row, col) {
     const { deleteSneaker } = this.props.actions;
     const data = { row, col };
@@ -72,11 +79,14 @@ class Home extends Component {
 
   render () {
     const { showForm } = this.state;
-    console.log('STATE', this.state);
+    const sneakerForm = (
+      <SneakerForm onSubmit={this.submitSneakerForm} />
+    );
+
     return (
       <div className='container'>
         {this.renderHeader()}
-        {showForm ? (<SneakerForm />) : this.renderGrid()}
+        {showForm ? sneakerForm : this.renderGrid()}
       </div>
     );
   }
@@ -93,7 +103,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   actions: {
     ...bindActionCreators({
-      deleteSneaker: SneakerServices.deleteSneaker
+      deleteSneaker: SneakerServices.deleteSneaker,
+      addSneaker: SneakerServices.addSneaker
     }, dispatch)
   }
 });
