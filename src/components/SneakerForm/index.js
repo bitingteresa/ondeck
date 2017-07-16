@@ -24,7 +24,7 @@ const createField = (name, placeholder) => {
 };
 
 const SneakerForm = (props) => {
-  const { handleSubmit, pristine, submitting, onCancel } = props;
+  const { handleSubmit, pristine, submitting, initialValues, onCancel } = props;
 
   return (
     <form onSubmit={handleSubmit} className='formContainer'>
@@ -53,6 +53,11 @@ const SneakerForm = (props) => {
   );
 };
 
+function mapStateToProps(state, ownProps) {
+  console.log('STATE', state);
+  console.log('ownProps', ownProps)
+}
+
 export default reduxForm({
   form: 'sneaker'
-})(SneakerForm);
+}, mapStateToProps)(SneakerForm);

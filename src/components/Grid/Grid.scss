@@ -51,3 +51,15 @@ i {
     transform: rotate(180deg);
   }
 }
+
+.editIcon {
+  color: $lemon;
+
+  &:hover {
+    -moz-transform: translate(0, -0.3rem);
+    -ms-transform: translate(0, -0.3rem);
+    -o-transform: translate(0, -0.3rem);
+    -webkit-transform: translate(0, -0.3rem);
+    transform: translate(0, -0.3rem)
+  }
+}

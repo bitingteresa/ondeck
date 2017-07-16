@@ -51,6 +51,17 @@ class ColItem extends Component {
     );
   }
 
+  renderEdit () {
+    return (
+      <i
+        className='material-icons pull-right editIcon'
+        onClick={::this.onAdd}
+      >
+        create
+      </i>
+    );
+  }
+
 // TODO:
 // refactor this outside of this component when grid id refactored
 // Loop through the label junk with a forEach loop
@@ -60,6 +71,7 @@ class ColItem extends Component {
     return (
       <p className='text-left inventoryItem'>
         {this.renderRemove()}
+        {this.renderEdit()}
         <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
         <b>Brand:</b> {item.brand}<br />
         <b>Style:</b> {item.style}<br />

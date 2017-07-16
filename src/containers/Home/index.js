@@ -97,12 +97,15 @@ class Home extends Component {
   }
 
   render () {
-    const { showForm } = this.state;
+    const { inventory } = this.props;
+    const { showForm, row, col } = this.state;
+    const check = row !== '' && col !== '';
     const sneakerForm = (
       <SneakerForm
         onSubmit={::this.onAddSubmit}
         ref={node => this.sneakerSubmit = node}
         onCancel={::this.clearForm}
+        initialValues={check ? inventory[row][col] : {}}
       />
     );
 
