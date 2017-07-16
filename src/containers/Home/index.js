@@ -5,12 +5,18 @@ import * as SneakerServices from '../../services/sneaker';
 import Grid from '../../components/Grid';
 import Row from '../../components/Grid/Row';
 import ColItem from '../../components/Grid/ColItem';
+import SneakerForm from '../../components/SneakerForm';
 import './Home.scss';
 
 class Home extends Component {
+  state = {
+    showForm: false,
+    row: '',
+    col: ''
+  };
 
   onAdd (row, col) {
-    console.log('Adding', row, col);
+    this.setState({ showForm: true, row, col });
   }
 
   onRemove (row, col) {
@@ -65,10 +71,12 @@ class Home extends Component {
   }
 
   render () {
+    const { showForm } = this.state;
+    console.log('STATE', this.state);
     return (
       <div className='container'>
         {this.renderHeader()}
-        {this.renderGrid()}
+        {showForm ? (<SneakerForm />) : this.renderGrid()}
       </div>
     );
   }

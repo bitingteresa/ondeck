@@ -51,7 +51,9 @@ class ColItem extends Component {
     );
   }
 
-// TODO: refactor this outside of this component when grid id refactored
+// TODO:
+// refactor this outside of this component when grid id refactored
+// Loop through the label junk with a forEach loop
   renderItem () {
     const { item } = this.props;
 
