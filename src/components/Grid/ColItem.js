@@ -62,7 +62,7 @@ class ColItem extends Component {
         <b>Brand:</b> {item.brand}<br />
         <b>Style:</b> {item.style}<br />
         <b>Size:</b> {item.size}<br />
-        <b>UPC ID:</b> {item.upc}<br />
+        <b>UPC:</b> {item.upc}<br />
       </p>
     );
   }
