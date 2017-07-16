@@ -6,3 +6,23 @@ export function deleteSneaker (response) {
     payoad: response
   };
 }
+
+export function addSneakerRequest (response) {
+  return {
+    type: C.ADD_SNEAKER_REQUEST
+  };
+}
+
+export function addSneakerSuccess (response) {
+  return {
+    type: C.ADD_SNEAKER_SUCCESS,
+    payoad: response
+  };
+}
+
+export function addSneakerError (response) {
+  return {
+    type: C.ADD_SNEAKER_ERROR,
+    error: response
+  };
+}
