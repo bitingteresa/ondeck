@@ -1,4 +1,5 @@
 import { makeGrid } from '../utils';
+import ActionsMap from './ActionsMap';
 
 const initialState = {
   inventory: makeGrid(5, 5)
@@ -65,5 +66,6 @@ initialState.inventory[4][5] = {
   upc: 12345
 };
 export default (state = initialState, action) => {
-  return state;
+  return ActionsMap[action.type] ?
+    ActionsMap[action.type](state, action) : state;
 };
