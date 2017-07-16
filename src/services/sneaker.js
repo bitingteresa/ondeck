@@ -6,3 +6,22 @@ export function deleteSneaker (data) {
     dispatch(Sneaker.deleteSneaker(data));
   };
 }
+
+export function addSneaker(data) {
+  return (dispatch) => {
+    const url = '#';
+
+    dispatch(Sneaker.addSneakerRequest());
+    axios.get(url)
+      .then(
+        (resp) => {
+          dispatch(Sneaker.addSneakerSuccess(data));
+        }
+      )
+      .catch(
+        (resp) => {
+          dispatch(Sneaker.addSneakerError(resp.data));
+        }
+      );
+  };
+}

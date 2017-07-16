@@ -14,10 +14,15 @@ const adding = (state, bool) => {
 };
 
 const setting = (state, action) => {
-  const { row, col, data } = action.payload;
+  const { row, col, brand, style, size, upc } = action.payload;
   const newData = { ...state };
 
-  newData.inventory[row][col] = data;
+  newData.inventory[row][col] = {
+    brand,
+    style,
+    size,
+    upc
+  };
   newData.isAdding = false;
 
   return Object.assign({}, state, newData);

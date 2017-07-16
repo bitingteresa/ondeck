@@ -16,7 +16,7 @@ export function addSneakerRequest (response) {
 export function addSneakerSuccess (response) {
   return {
     type: C.ADD_SNEAKER_SUCCESS,
-    payoad: response
+    payload: response
   };
 }
 

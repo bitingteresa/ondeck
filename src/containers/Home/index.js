@@ -15,6 +15,12 @@ class Home extends Component {
     col: ''
   };
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.isAdding && !nextProps.isAdding) {
+      this.setState({ showForm: false, row: '', col: '' });
+    }
+  }
+
   onAdd (row, col) {
     this.setState({ showForm: true, row, col });
   }
@@ -25,8 +31,9 @@ class Home extends Component {
 
     newData.row = row;
     newData.col = col;
-    console.log('submitting', newData)
+
     this.props.actions.addSneaker(newData);
+    // this.setState({ showForm: false, row: '', col: '' });
   }
 
   onRemove (row, col) {
@@ -105,7 +112,8 @@ class Home extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const newState = {
-    inventory: state.sneaker.inventory
+    inventory: state.sneaker.inventory,
+    isAdding: state.sneaker.isAdding
   };
 
   return newState;
