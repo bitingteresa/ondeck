@@ -2,7 +2,8 @@ import { makeGrid } from '../utils';
 import ActionsMap from './ActionsMap';
 
 const initialState = {
-  inventory: makeGrid(5, 5)
+  inventory: makeGrid(5, 5),
+  isAdding: false
 };
 
 export default (state = initialState, action) => {

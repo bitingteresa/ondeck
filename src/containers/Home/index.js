@@ -21,9 +21,12 @@ class Home extends Component {
 
   onAddSubmit (data) {
     const { row, col } = this.state;
-    const position = { row, col };
+    const newData = { ...data };
 
-    this.props.actions.addSneaker(position, data);
+    newData.row = row;
+    newData.col = col;
+
+    this.props.actions.addSneaker(newData);
   }
 
   onRemove (row, col) {
