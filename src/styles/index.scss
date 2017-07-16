@@ -9,3 +9,44 @@ body {
   background-color: black;
   color: white;
 }
+
+// Bootstrap overrides
+.form-control {
+  border-radius: 0;
+  border: none;
+  background-color: $sky;
+  color: black;
+  font-size: 24px;
+  letter-spacing: 0.2rem;
+  padding: 3rem;
+
+  &::-webkit-input-placeholder { color: white; }  /* WebKit, Blink, Edge */
+  &:-moz-placeholder { color: white; }  /* Mozilla Firefox 4 to 18 */
+  &::-moz-placeholder { color: white; }  /* Mozilla Firefox 19+ */
+  &:-ms-input-placeholder { color: white; }  /* Internet Explorer 10-11 */
+  &::-ms-input-placeholder { color: white; }  /* Microsoft Edge */
+}
+
+.btn {
+  background-color: transparent;
+  border: 2px solid $rose;
+  border-radius: 0;
+  color: $rose;
+  padding: 16px 36px;
+  font-size: 20px;
+
+  &:hover {
+    background-color: $rose;
+    border: 2px solid $rose;
+  }
+
+  &:disabled, &:disabled:hover {
+    background-color: transparent;
+    color: $rose;
+    border-color: $rose;
+  }
+}
+
+.btn-primary {
+
+}

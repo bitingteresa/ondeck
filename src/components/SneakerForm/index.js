@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import './SneakerForm.scss';
 
 const FieldsMap = {
   brand: 'Brand',
@@ -10,7 +11,7 @@ const FieldsMap = {
 
 const createField = (name, placeholder) => {
   return (
-    <div key={name}>
+    <div key={name} className='form-group'>
       <Field
         name={name}
         component='input'
@@ -26,14 +27,21 @@ const SneakerForm = (props) => {
   const { handleSubmit, pristine, submitting } = props;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='formContainer'>
       <div>
         {Object.keys(FieldsMap).map((key) => {
           return createField(key, FieldsMap[key]);
         })}
       </div>
-      <div>
-        <button type='submit' disabled={pristine || submitting}>Submit</button>
+      <br />
+      <div className='pull-right'>
+        <button
+          type='submit'
+          disabled={pristine || submitting}
+          className='btn btn-primary'
+        >
+          Submit
+        </button>
       </div>
     </form>
   );
