@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Grid from '../../components/Grid';
 import './Home.scss';
 
 class Home extends Component {
@@ -14,8 +15,9 @@ class Home extends Component {
 
   render () {
     return (
-      <div className='homeContent'>
+      <div className='container'>
         {this.renderHeader()}
+        <Grid grid={this.props.inventory} />
       </div>
     );
   }
@@ -23,7 +25,7 @@ class Home extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const newState = {
-
+    inventory: state.sneaker.inventory
   };
 
   return newState;
