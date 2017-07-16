@@ -25,7 +25,7 @@ class Home extends Component {
 
     newData.row = row;
     newData.col = col;
-
+    console.log('submitting', newData)
     this.props.actions.addSneaker(newData);
   }
 
@@ -34,6 +34,11 @@ class Home extends Component {
     const data = { row, col };
 
     deleteSneaker(data);
+  }
+
+  submitSneaker () {
+  // Just a wrapper to actually hit the form submit
+    this.sneakerSubmit.submit();
   }
 
   renderHeader () {
@@ -83,7 +88,10 @@ class Home extends Component {
   render () {
     const { showForm } = this.state;
     const sneakerForm = (
-      <SneakerForm onSubmit={this.submitSneakerForm} />
+      <SneakerForm
+        onSubmit={::this.onAddSubmit}
+        ref={node => this.sneakerSubmit = node}
+      />
     );
 
     return (
