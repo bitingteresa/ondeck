@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   renderItem (item, rowId) {
-    const size = Math.floor(12 / (Object.keys(item).length))
+    const size = Math.floor(12 / (Object.keys(item).length));
 
     return Object.keys(item).map((key) => {
       const props = {
@@ -74,6 +74,48 @@ const mapStateToProps = (state, ownProps) => {
     inventory: state.sneaker.inventory
   };
 
+  newState.inventory[2][2] = {
+    brand: 'Nike',
+    style: 'Jordans',
+    size: 10,
+    upc: 456783
+  };
+  newState.inventory[2][4] = {
+    brand: 'adidas',
+    style: 'stripes',
+    size: 10,
+    upc: 12345
+  };
+  newState.inventory[2][1] = {
+    brand: 'Nike',
+    style: 'Jordans',
+    size: 10,
+    upc: 456783
+  };
+  newState.inventory[2][3] = {
+    brand: 'adidas',
+    style: 'stripes',
+    size: 10,
+    upc: 12345
+  };
+  newState.inventory[1][1] = {
+    brand: 'Nike',
+    style: 'Jordans',
+    size: 10,
+    upc: 456783
+  };
+  newState.inventory[1][3] = {
+    brand: 'adidas',
+    style: 'stripes',
+    size: 10,
+    upc: 12345
+  };
+  newState.inventory[4][3] = {
+    brand: 'adidas',
+    style: 'stripes',
+    size: 10,
+    upc: 12345
+  };
   return newState;
 };
 

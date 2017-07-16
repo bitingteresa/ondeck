@@ -5,10 +5,20 @@
   color: $grass;
 }
 
-.row {
+.gridRow {
   margin: 5rem;
+  display: flex;
+  align-items: center;
 }
 
 i {
   cursor: pointer;
+}
+
+.inventoryItem {
+  img {
+    height: 75px;
+    width: 150px;
+    margin-left: -2rem;
+  }
 }

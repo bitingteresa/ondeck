@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Shoe from '../../assets/shoe.png';
 import './Grid.scss';
 
 class ColItem extends Component {
@@ -50,22 +51,28 @@ class ColItem extends Component {
     );
   }
 
+// TODO: refactor this outside of this component when grid id refactored
   renderItem () {
     const { item } = this.props;
 
     return (
-      <p>
-        Brand: {item.brand}
-        {this.renderRemove()}
+      <p className='text-left inventoryItem'>
+        <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
+        Brand: {item.brand}<br />
+        Style: {item.style}<br />
+        Size: {item.size}<br />
+        UPC ID: {item.upc}<br />
       </p>
     );
   }
 
   render () {
-    const { size } = this.props;
+    const { size, item } = this.props;
 
     return (
-      <span className={`col-xs-${size} text-center`}>{this.renderAdd()}</span>
+      <span className={`col-xs-${size} text-center`}>
+        {Object.keys(item).length ? this.renderItem() : this.renderAdd()}
+      </span>
     );
   }
 }
