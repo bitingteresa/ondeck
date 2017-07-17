@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Label from '../Label';
+import { titleCase } from '../../utils';
 import Shoe from '../../assets/shoe.png';
 import './Grid.scss';
 
@@ -65,16 +66,17 @@ class ColItem extends Component {
 
 // TODO:
 // refactor this outside of this component when grid id refactored
-// Loop through the label junk with a forEach loop
   renderItem () {
     const { item } = this.props;
-    console.log('ITEM: ', Object.keys(item).map(i => item[i]))
+
     return (
       <div className='text-left inventoryItem'>
         {this.renderRemove()}
         {this.renderEdit()}
         <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
-        {Object.keys(item).map(i => <Label label={i} value={item[i]} key={i} />)}
+        {Object.keys(item).map((i) => {
+          return (<Label label={titleCase(i)} value={item[i]} key={i} />);
+        })}
       </div>
     );
   }
