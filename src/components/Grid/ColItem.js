@@ -66,16 +66,21 @@ class ColItem extends Component {
 
 // TODO:
 // refactor this outside of this component when grid id refactored
+// clean up ordering
   renderItem () {
     const { item } = this.props;
+    const order = ['brand', 'style', 'size', 'upc'];
 
     return (
       <div className='text-left inventoryItem'>
         {this.renderRemove()}
         {this.renderEdit()}
         <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
-        {Object.keys(item).map((i) => {
-          return (<Label label={titleCase(i)} value={item[i]} key={i} />);
+        {order.map((i) => {
+          if (item[i]) {
+            return (<Label label={titleCase(i)} value={item[i]} key={i} />);
+          }
+          return '';
         })}
       </div>
     );
