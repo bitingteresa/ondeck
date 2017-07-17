@@ -67,8 +67,9 @@ body {
   border-color: $rose;
   color: $rose;
 
-  &:hover, &:active:focus  {
+  &:hover, &:active:focus, &:focus  {
     background-color: $rose;
     border-color: $rose;
+    color: white;
   }
 }

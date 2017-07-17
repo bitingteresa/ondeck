@@ -91,18 +91,27 @@ class Home extends Component {
   }
 
   renderGrid () {
-    const { inventory } = this.props;
+    const { inventory, actions } = this.props;
 
     return (
-      <Grid>
-        {Object.keys(inventory).map((row) => {
-          return (
-            <Row key={row}>
-              {this.renderItem(inventory[row], row)}
-            </Row>
-          );
-        })}
-      </Grid>
+      <div>
+        <Grid>
+          {Object.keys(inventory).map((row) => {
+            return (
+              <Row key={row}>
+                {this.renderItem(inventory[row], row)}
+              </Row>
+            );
+          })}
+        </Grid>
+        <br />
+        <button
+          className='btn btn-default pull-right clearBtn'
+          onClick={::actions.clearSneakers}
+        >
+          CLEAR ALL
+        </button>
+      </div>
     );
   }
 
