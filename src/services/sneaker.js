@@ -25,3 +25,9 @@ export function addSneaker(data, pos) {
       );
   };
 }
+
+export function clearSneakers () {
+  return (dispatch) => {
+    dispatch(Sneaker.clearSneakers());
+  };
+}

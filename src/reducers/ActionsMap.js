@@ -1,4 +1,5 @@
 import * as C from '../constants';
+import { makeGrid } from '../utils';
 
 const deleting = (state, action) => {
   const { row, col } = action.payoad;
@@ -31,11 +32,16 @@ const erring = (state, action) => {
   return Object.assign({}, state, { isAdding: false, error: action.payload });
 };
 
+const clearing = (state) => {
+  return Object.assign({}, state, { inventory: makeGrid(5, 5) });
+};
+
 const ActionsMap = {
   [C.DELETE_SNEAKER]: (state, action) => deleting(state, action),
   [C.ADD_SNEAKER_REQUEST]: (state, bool) => adding(state, true),
   [C.ADD_SNEAKER_SUCCESS]: (state, action) => setting(state, action),
-  [C.ADD_SNEAKER_ERROR]: (state, action) => erring(state, action)
+  [C.ADD_SNEAKER_ERROR]: (state, action) => erring(state, action),
+  [C.CLEAR_SNEAKERS]: state => clearing(state)
 };
 
 export default ActionsMap;

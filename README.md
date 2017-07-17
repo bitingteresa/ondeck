@@ -16,4 +16,3 @@ On Deck is a Webpack 3, React, Redux, and Sass application that keeps inventory.
 * Refactor Form component so it is cleaner.
 * Add validation for form.
 * Max char on validation.
-* Add clear all inventory.

@@ -27,3 +27,9 @@ export function addSneakerError (response) {
     error: response
   };
 }
+
+export function clearSneakers () {
+  return {
+    type: C.CLEAR_SNEAKERS
+  };
+}
