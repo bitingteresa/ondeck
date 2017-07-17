@@ -1,0 +1,37 @@
+@import '../../styles/index';
+
+.splash {
+  font-family: 'Helvetica';
+  text-align: left;
+
+  img {
+    width: 400px;
+    height: 400px;
+    margin-top: 3rem;
+  }
+
+  h1 {
+    font-size: 7em;
+    margin: 1rem 0;
+  }
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.first {
+  -webkit-animation: firstColorChange 15s infinite;
+}
+
+.second {
+  -webkit-animation: secondColorChange 5s infinite;
+}
+
+.centerButton {
+  margin: 0 auto;
+  text-align: center;
+}

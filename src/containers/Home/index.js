@@ -6,10 +6,13 @@ import Grid from '../../components/Grid';
 import Row from '../../components/Grid/Row';
 import ColItem from '../../components/Grid/ColItem';
 import SneakerForm from '../../components/SneakerForm';
+import Splash from '../../components/Splash';
+import WhiteDiamond from '../../assets/white_diamond.png';
 import './Home.scss';
 
 class Home extends Component {
   state = {
+    showSplash: true,
     showForm: false,
     row: '',
     col: ''
@@ -52,10 +55,17 @@ class Home extends Component {
     this.setState({ showForm: false, row: '', col: '' });
   }
 
+  showSplash () {
+    this.setState({ showSplash: false });
+  }
+  
   renderHeader () {
     return (
       <div className='header'>
-        <h1>On Deck</h1>
+        <h1>
+          <img src={WhiteDiamond} alt='logo' />
+          ON DECK
+        </h1>
       </div>
     );
   }
@@ -96,7 +106,7 @@ class Home extends Component {
     );
   }
 
-  render () {
+  renderApp () {
     const { inventory } = this.props;
     const { showForm, row, col } = this.state;
     const check = row !== '' && col !== '';
@@ -110,9 +120,19 @@ class Home extends Component {
     );
 
     return (
-      <div className='container'>
+      <div>
         {this.renderHeader()}
         {showForm ? sneakerForm : this.renderGrid()}
+      </div>
+    );
+  }
+
+  render () {
+    const { showSplash } = this.state;
+
+    return (
+      <div className='container'>
+        {showSplash ? <Splash start={::this.showSplash} /> : this.renderApp()}
       </div>
     );
   }
