@@ -14,15 +14,14 @@ const adding = (state, bool) => {
 };
 
 const setting = (state, action) => {
-  const { row, col, brand, style, size, upc } = action.payload;
+  const { row, col } = action.position;
   const newData = { ...state };
 
-  newData.inventory[row][col] = {
-    brand,
-    style,
-    size,
-    upc
-  };
+  for (const prop in action.payload) {
+    if (Object.prototype.hasOwnProperty.call(action.payload, prop)) {
+      newData.inventory[row][col][prop] = action.payload[prop];
+    }
+  }
   newData.isAdding = false;
 
   return Object.assign({}, state, newData);

@@ -14,7 +14,6 @@ On Deck is a Webpack 3, React, Redux, and Sass application that keeps inventory.
 ### Future Improvements
 * Refactor Grid component so it can be abstracted and unnested.
 * Refactor Form component so it is cleaner.
-* Refactor validation for form.
-* Titlecase util for data validation.
+* Add validation for form.
 * Max char on validation.
 * Add clear all inventory.

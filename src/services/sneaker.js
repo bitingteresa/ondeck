@@ -7,7 +7,7 @@ export function deleteSneaker (data) {
   };
 }
 
-export function addSneaker(data) {
+export function addSneaker(data, pos) {
   return (dispatch) => {
     const url = '#';
 
@@ -15,7 +15,7 @@ export function addSneaker(data) {
     axios.get(url)
       .then(
         (resp) => {
-          dispatch(Sneaker.addSneakerSuccess(data));
+          dispatch(Sneaker.addSneakerSuccess(data, pos));
         }
       )
       .catch(

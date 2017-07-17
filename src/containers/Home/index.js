@@ -24,19 +24,19 @@ class Home extends Component {
     }
   }
 
+  componentWillUnmount () {
+    this.props.actions.clearSneakers();
+  }
+
   onAdd (row, col) {
     this.setState({ showForm: true, row, col });
   }
 
   onAddSubmit (data) {
     const { row, col } = this.state;
-    const newData = { ...data };
+    const pos = { row, col };
 
-    newData.row = row;
-    newData.col = col;
-
-    this.props.actions.addSneaker(newData);
-    // this.setState({ showForm: false, row: '', col: '' });
+    this.props.actions.addSneaker(data, pos);
   }
 
   onRemove (row, col) {
@@ -58,7 +58,7 @@ class Home extends Component {
   showSplash () {
     this.setState({ showSplash: false });
   }
-  
+
   renderHeader () {
     return (
       <div className='header'>
@@ -151,7 +151,8 @@ const mapDispatchToProps = dispatch => ({
   actions: {
     ...bindActionCreators({
       deleteSneaker: SneakerServices.deleteSneaker,
-      addSneaker: SneakerServices.addSneaker
+      addSneaker: SneakerServices.addSneaker,
+      clearSneakers: SneakerServices.clearSneakers
     }, dispatch)
   }
 });

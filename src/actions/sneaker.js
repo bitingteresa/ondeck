@@ -7,16 +7,17 @@ export function deleteSneaker (response) {
   };
 }
 
-export function addSneakerRequest (response) {
+export function addSneakerRequest () {
   return {
     type: C.ADD_SNEAKER_REQUEST
   };
 }
 
-export function addSneakerSuccess (response) {
+export function addSneakerSuccess (response, position) {
   return {
     type: C.ADD_SNEAKER_SUCCESS,
-    payload: response
+    payload: response,
+    position
   };
 }
 
