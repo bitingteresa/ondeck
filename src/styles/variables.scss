@@ -3,13 +3,14 @@ $grass: rgba(45, 243, 161, 1);
 $rose: rgba(237, 171, 244, 1);
 $lemon: rgba(242, 247, 108, 1);
 $lilac: rgba(121, 129, 242, 1);
+$royal: rgba(18, 102, 255, 1);
 
 @-webkit-keyframes firstColorChange {
   0% {
     color: $sky;
   }
   50% {
-    color: $grass;
+    color: $royal;
   }
   100% {
     color: $rose;

@@ -14,7 +14,7 @@ body {
 .form-control {
   border-radius: 0;
   border: none;
-  background-color: $sky;
+  background-color: $royal;
   color: black;
   font-size: 24px;
   letter-spacing: 0.2rem;
@@ -52,7 +52,7 @@ body {
   border-color: darken($grass, 5%);
   color: darken($grass, 5%);
 
-  &:hover {
+  &:hover, &:active:focus {
     background-color: darken($grass, 5%);
     border: 2px solid darken($grass, 5%);
   }
@@ -67,7 +67,7 @@ body {
   border-color: $rose;
   color: $rose;
 
-  &:hover {
+  &:hover, &:active:focus  {
     background-color: $rose;
     border-color: $rose;
   }
