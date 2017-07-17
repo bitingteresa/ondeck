@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Label from '../Label';
 import Shoe from '../../assets/shoe.png';
 import './Grid.scss';
 
@@ -67,17 +68,14 @@ class ColItem extends Component {
 // Loop through the label junk with a forEach loop
   renderItem () {
     const { item } = this.props;
-
+    console.log('ITEM: ', Object.keys(item).map(i => item[i]))
     return (
-      <p className='text-left inventoryItem'>
+      <div className='text-left inventoryItem'>
         {this.renderRemove()}
         {this.renderEdit()}
         <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
-        <b>Brand:</b> {item.brand}<br />
-        <b>Style:</b> {item.style}<br />
-        <b>Size:</b> {item.size}<br />
-        <b>UPC:</b> {item.upc}<br />
-      </p>
+        {Object.keys(item).map(i => <Label label={i} value={item[i]} key={i} />)}
+      </div>
     );
   }
 
