@@ -14,13 +14,21 @@ const adding = (state, bool) => {
   return Object.assign({}, state, { isAdding: bool });
 };
 
+// TODO: refactor this func so it's less ify
 const setting = (state, action) => {
   const { row, col } = action.position;
   const newData = { ...state };
 
   for (const prop in action.payload) {
-    if (Object.prototype.hasOwnProperty.call(action.payload, prop)) {
+    if (
+      Object.prototype.hasOwnProperty.call(action.payload, prop) &&
+      action.payload[prop] !== ''
+    ) {
       newData.inventory[row][col][prop] = action.payload[prop];
+    }
+
+    if (action.payload[prop] === '') {
+      delete newData.inventory[row][col][prop];
     }
   }
   newData.isAdding = false;

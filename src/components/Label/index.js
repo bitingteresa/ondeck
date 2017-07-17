@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Label.scss';
 
 const Label = (props) => {
   return (
-    <p>
+    <p className='shoeLabel'>
       <b>{props.label}: </b>{props.value}
     </p>
   );
