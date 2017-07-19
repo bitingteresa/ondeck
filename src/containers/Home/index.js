@@ -7,6 +7,8 @@ import Row from '../../components/Grid/Row';
 import ColItem from '../../components/Grid/ColItem';
 import SneakerForm from '../../components/SneakerForm';
 import Splash from '../../components/Splash';
+import Label from '../../components/Label';
+import { titleCase } from '../../utils';
 import WhiteDiamond from '../../assets/white_diamond.png';
 import './Home.scss';
 
@@ -72,6 +74,7 @@ class Home extends Component {
 
   renderItem (item, rowId) {
     const size = Math.floor(12 / (Object.keys(item).length));
+    const offset = 1;
 
     return Object.keys(item).map((key) => {
       const props = {
@@ -81,11 +84,22 @@ class Home extends Component {
         onAdd: ::this.onAdd,
         onRemove: ::this.onRemove,
         size,
+        offset,
         key
       };
+      const order = ['brand', 'style', 'size', 'upc'];
+      const colItem = item[key];
 
       return (
-        <ColItem {...props} />
+        <ColItem {...props}>
+          {order.map((x) => {
+            const renderItem = (
+              <Label label={titleCase(x)} value={colItem[x]} key={x} />
+            );
+
+            return colItem[x] ? renderItem : '';
+          })}
+        </ColItem>
       );
     });
   }

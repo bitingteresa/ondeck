@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Label from '../Label';
-import { titleCase } from '../../utils';
 import Shoe from '../../assets/shoe.png';
 import './Grid.scss';
 
@@ -12,7 +10,9 @@ class ColItem extends Component {
     item: PropTypes.object,
     onAdd: PropTypes.func,
     onRemove: PropTypes.func,
-    size: PropTypes.number
+    size: PropTypes.number,
+    offset: PropTypes.number,
+    children: PropTypes.any
   };
 
   onAdd () {
@@ -64,35 +64,25 @@ class ColItem extends Component {
     );
   }
 
-// TODO:
-// refactor this outside of this component when grid id refactored
-// clean up ordering
   renderItem () {
-    const { item } = this.props;
-    const order = ['brand', 'style', 'size', 'upc'];
+    const { children } = this.props;
 
     return (
       <div className='text-left inventoryItem'>
         {this.renderRemove()}
         {this.renderEdit()}
         <img src={Shoe} alt='sneaker' className='img-responsive' /><br />
-        {order.map((i) => {
-          if (item[i]) {
-            return (<Label label={titleCase(i)} value={item[i]} key={i} />);
-          }
-          return '';
-        })}
+        {children}
       </div>
     );
   }
 
-// TODO: refactor offset formula
   render () {
-    const { size, item, col } = this.props;
-    const offset = col === '1' ? 'col-xs-offset-1' : '';
+    const { size, item, col, offset } = this.props;
+    const setOffset = col === '1' ? `col-xs-offset-${offset}` : '';
 
     return (
-      <span className={`col-xs-${size} text-center ${offset}`}>
+      <span className={`col-xs-${size} text-center ${setOffset}`}>
         {Object.keys(item).length ? this.renderItem() : this.renderAdd()}
       </span>
     );
